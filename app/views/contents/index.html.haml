@@ -1,6 +1,111 @@
-%h3.header__name
-  = current_user.name
-%ul.header__lists
-  %li.list
-    = link_to edit_user_path(current_user) do
-      = icon('fas', 'cog', class: 'icon')
+!!!
+%html{:lang => "ja"}
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %meta{:charset => "UTF-8"}/
+    %meta{:content => "IE=edge", "http-equiv" => "X-UA-Compatible"}/
+    %title 漢気旅行
+    %meta{:content => "width=device-width, initial-scale=1", :name => "viewport"}/
+    %meta{:content => "漢気旅行会計管理アプリ", :name => "description"}/
+    %link{:href => "content.css", :rel => "stylesheet"}/
+    %link{:href => "css/style.css", :rel => "stylesheet"}/
+    %script{:src => "js/openclose.js", :type => "text/javascript"}
+  %body
+    / 小さな端末用（480px以下端末）ブロック
+    -# %h3.header__name
+    -#   = current_user.name
+    %ul.header__lists
+      %li.list
+        = link_to edit_user_path(current_user) do
+          = icon('fas', 'cog', class: 'icon')
+    #sh
+      / 小さな端末用ロゴ
+      %p#logo
+        %a{:href => "index.html"}
+          %img{:alt => "TITLE LOGO", :src => "images/title_s.png"}/
+      / 小さな端末用メニュー
+      %nav#menubar-s
+        %ul
+          %li
+            %a{:href => "index.html"} 漢気REGISTRATION
+          %li
+            %a{:href => "ranking.html"} RANKING
+    / /sh
+    #container
+      #main
+        %section.box
+          %aside#mainimg
+            %img#slide1{:alt => "", :src => "images/image1.jpg"}/
+            %img#slide2{:alt => "", :src => "images/image2.jpg"}/
+            %img#slide3{:alt => "", :src => "images/image3.jpg"}/
+        / /box
+        %section.box
+          %h2 漢気REGISTRATION
+          %h3 支払い金額登録
+          %p 入力後、登録ボタンを押してください
+          %form{:action => "#", :method => "post"}
+            %p.name
+              漢名：
+              = current_user.name
+              %br/
+            %p
+              支払い場所：
+              %br/
+              %input{:name => "place", :type => "text"}/
+            %p
+              金額：
+              %br/
+              = succeed "\u{5186}" do
+                %input{:name => "payment", :type => "text"}/
+            %p
+              勝ち手：
+              %br/
+              %label
+                %input{:name => "sign", :type => "radio", :value => "rock"}>/
+                グー　
+              %label
+                %input{:name => "sign", :type => "radio", :value => "scissors"}>/
+                チョキ　
+              %label
+                %input{:name => "sign", :type => "radio", :value => "paper"}>/
+                パー　
+            %p
+              %input{:disabled => "disabled", :type => "submit", :value => "登録"}/
+        / /box
+      / /main
+      #sub
+        / 大きな端末用（481px以上端末）ロゴ
+        %p#logo
+          %a{:href => "index.html"}
+            %img{:alt => "TITLE LOGO", :src => "images/title.png"}/
+        / 大きな端末用（481px以上端末）メニュー
+        %nav#menubar
+          %ul
+            %li
+              %a{:href => "index.html"} 漢気REGISTRATION
+            %li
+              %a{:href => "ranking.html"} RANKING
+      / /sub
+    / /container
+    %footer
+      %small
+        Copyright©
+        %a{:href => "index.html"} Sample Site
+        All Rights Reserved.
+      %span.pr
+        %a{:href => "http://template-party.com/", :target => "_blank"} Web Design:Template-Party
+    / お知らせ欄の開閉処理条件　480px以下
+    :javascript
+      if (OCwindowWidth() <= 480) {
+      	open_close("newinfo_hdr", "newinfo");
+      }
+    / メニューの３本バー
+    #menubar_hdr.close
+      %span
+      %span
+      %span
+    / メニューの開閉処理条件設定　480px以下
+    :javascript
+      if (OCwindowWidth() <= 480) {
+      	open_close("menubar_hdr", "menubar-s");
+      }
