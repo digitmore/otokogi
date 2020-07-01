@@ -13,7 +13,7 @@ body {
 	font-family:"ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo, Osaka, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;	/*フォント種類*/
 	font-size: 14px;	/*文字サイズ*/
 	line-height: 2;		/*行間*/
-	background: #fff url(../images/bg.jpg) fixed;	/*背景色、背景画像の読み込み。fixedは画面をスクロールしても画像を固定させる設定。*/
+	background: #fff url(images/bg.jpg) fixed;	/*背景色、背景画像の読み込み。fixedは画面をスクロールしても画像を固定させる設定。*/
 	-webkit-text-size-adjust: none;
 }
 h1,h2,h3,h4,h5,p,ul,ol,li,dl,dt,dd,form,figure,form {margin: 5px;padding: 5px;font-size: 100%;}
@@ -397,14 +397,14 @@ ul.disc {padding: 0em 25px 1em;list-style: disc;}
 /*トップページ内「更新情報・お知らせ」ブロック
 ---------------------------------------------------------------------------*/
 section#new h2.open {
-	background: url(../images/btn_minus.png) no-repeat right center/34px 34px,-webkit-gradient(linear, left top, left bottom, from(#777684), to(#696874));	/*グラデーション*/
-	background: url(../images/btn_minus.png) no-repeat right center/34px 34px,-webkit-linear-gradient(#777684, #696874);	/*同上*/
-	background: url(../images/btn_minus.png) no-repeat right center/34px 34px,linear-gradient(#777684, #696874);			/*同上*/
+	background: url(images/btn_minus.png) no-repeat right center/34px 34px,-webkit-gradient(linear, left top, left bottom, from(#777684), to(#696874));	/*グラデーション*/
+	background: url(images/btn_minus.png) no-repeat right center/34px 34px,-webkit-linear-gradient(#777684, #696874);	/*同上*/
+	background: url(images/btn_minus.png) no-repeat right center/34px 34px,linear-gradient(#777684, #696874);			/*同上*/
 }
 section#new h2.close {
-	background: url(../images/btn_plus.png) no-repeat right center/34px 34px,-webkit-gradient(linear, left top, left bottom, from(#777684), to(#696874));	/*グラデーション*/
-	background: url(../images/btn_plus.png) no-repeat right center/34px 34px,-webkit-linear-gradient(#777684, #696874);	/*同上*/
-	background: url(../images/btn_plus.png) no-repeat right center/34px 34px,linear-gradient(#777684, #696874);			/*同上*/
+	background: url(images/btn_plus.png) no-repeat right center/34px 34px,-webkit-gradient(linear, left top, left bottom, from(#777684), to(#696874));	/*グラデーション*/
+	background: url(images/btn_plus.png) no-repeat right center/34px 34px,-webkit-linear-gradient(#777684, #696874);	/*同上*/
+	background: url(images/btn_plus.png) no-repeat right center/34px 34px,linear-gradient(#777684, #696874);			/*同上*/
 }
 
 /*テーブル１

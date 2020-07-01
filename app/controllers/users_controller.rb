@@ -1,4 +1,8 @@
 class UsersController < ApplicationController
+  def index
+    @user_total = User.left_joins(:contents).group(:name).sum(:payment).sort {|(k1, v1), (k2, v2)| v2 <=> v1 }.to_h
+  end
+
   def edit
   end
 

@@ -30,40 +30,17 @@
       #main
         %section.box
           %aside.mainimg
-            =image_tag "images/image1.jpg",class: "slide1"
+            =image_tag "images/image2.jpg",class: "slide1"
         %section.box
-          %h2 漢気REGISTRATION
-          %h3 支払い金額登録
-          %p 
-            入力後、登録ボタンを押してください
-            = form_with model: @content, local: true do |f|
-              %p
-                漢名：
-                = current_user.name
-                %br/
-              %p
-                支払い項目：
-                %br/
-                = f.text_field :place, autofocus: true, placeholder: " 例) 夕食代"
-              %p
-                金額：
-                %br/
-                = f.text_field :payment, autofocus: true, placeholder: " 例) 1,000"
-              %p
-                勝ち手：
-                %br/
-                %label
-                  = f.radio_button :rockpaperscissors ,:グー
-                  グー
-                %label
-                  = f.radio_button :rockpaperscissors ,:チョキ
-                  チョキ
-                %label
-                  = f.radio_button :rockpaperscissors ,:パー
-                  パー
-                %br/
-                %br/
-                = f.submit '登録する', class: "form-btn"
+          %h3 支払金額ランキング
+          %p5 合計金額：
+          = Content.all.sum(:payment)
+          円
+          　平均金額：
+          = Content.all.sum(:payment)/User.count
+          円
+          .chart-box
+            = bar_chart @user_total, width: "90%", height: "400px"
       #sub
         / 大きな端末用（481px以上端末）ロゴ
         %p.logo
