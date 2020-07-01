@@ -1,0 +1,102 @@
+!!!
+%html{:lang => "ja"}
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %meta{:charset => "UTF-8"}/
+    %meta{:content => "IE=edge", "http-equiv" => "X-UA-Compatible"}/
+    %title 漢気旅行
+    %meta{:content => "width=device-width, initial-scale=1", :name => "viewport"}/
+    %meta{:content => "漢気旅行会計管理アプリ", :name => "description"}/
+    %link{:href => "css/slide.css", :rel => "stylesheet"}/
+    %link{:href => "css/style.css", :rel => "stylesheet"}/
+    %script{:src => "js/openclose.js", :type => "text/javascript"}
+  %body
+    / 小さな端末用（480px以下端末）ブロック
+    #sh
+      / 小さな端末用ロゴ
+      %p#logo
+        =link_to "#" do
+          =image_tag "images/title_s.png"
+      / 小さな端末用メニュー
+      %nav#menubar-s
+        %ul
+          %li
+            =link_to "漢気REGISTRATION", root_path
+          %li
+            =link_to "RANKING", users_path
+          %li
+            =link_to "ユーザー編集", edit_user_path(current_user)
+    #container
+      #main
+        %section.box
+          %aside.mainimg
+            =image_tag "images/image1.jpg",class: "slide1"
+        %section.box
+          %h2 漢気REGISTRATION
+          %h3 支払い金額登録
+          %p 
+            入力後、登録ボタンを押してください
+            = form_with model: @content, local: true do |f|
+              %p
+                漢名：
+                = current_user.name
+                %br/
+              %p
+                支払い項目：
+                %br/
+                = f.text_field :place, autofocus: true, placeholder: " 例) 夕食代"
+              %p
+                金額：
+                %br/
+                = f.text_field :payment, autofocus: true, placeholder: " 例) 1,000"
+              %p
+                勝ち手：
+                %br/
+                %label
+                  = f.radio_button :rockpaperscissors ,:グー
+                  グー
+                %label
+                  = f.radio_button :rockpaperscissors ,:チョキ
+                  チョキ
+                %label
+                  = f.radio_button :rockpaperscissors ,:パー
+                  パー
+                %br/
+                %br/
+                = f.submit '登録する', class: "form-btn"
+      #sub
+        / 大きな端末用（481px以上端末）ロゴ
+        %p.logo
+          =link_to "#" do
+            =image_tag "images/title.png"
+        / 大きな端末用（481px以上端末）メニュー
+        %nav#menubar
+          %ul
+            %li
+              =link_to "漢気REGISTRATION", root_path
+            %li
+              =link_to "RANKING", users_path
+            %li
+              =link_to "ユーザー編集", edit_user_path(current_user)
+    %footer
+      %small
+        Copyright©
+        %a{:href => "http://template-party.com/"} Sample Site
+        All Rights Reserved.
+      %span.pr
+        %a{:href => "http://template-party.com/", :target => "_blank"} Web Design:Template-Party
+    / お知らせ欄の開閉処理条件　480px以下
+    :javascript
+      if (OCwindowWidth() <= 480) {
+      	open_close("newinfo_hdr", "newinfo");
+      }
+    / メニューの３本バー
+    #menubar_hdr.close
+      %span
+      %span
+      %span
+    / メニューの開閉処理条件設定　480px以下
+    :javascript
+      if (OCwindowWidth() <= 480) {
+      	open_close("menubar_hdr", "menubar-s");
+      }
