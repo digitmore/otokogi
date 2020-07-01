@@ -34,13 +34,13 @@
         %section.box
           %h3 支払金額ランキング
           %p5 合計金額：
-          = Content.all.sum(:payment)
+          = Content.all.sum(:payment).to_s(:delimited)
           円
           　平均金額：
-          = Content.all.sum(:payment)/User.count
+          = (Content.all.sum(:payment)/User.count).to_s(:delimited)
           円
           .chart-box
-            = bar_chart @user_total, width: "90%", height: "400px"
+            = bar_chart @user_total,dataLabels: { enabled: true }, thousands: ",", width: "90%", height: "400px"
       #sub
         / 大きな端末用（481px以上端末）ロゴ
         %p.logo

@@ -13,7 +13,7 @@ class ContentsController < ApplicationController
       redirect_to root_path
     else
       flash[:notice] = '登録に失敗しました。'
-      render root_path
+      redirect_to root_path
     end
   end
   
